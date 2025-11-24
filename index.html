@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快乐学拼音 - 幼儿启蒙</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <h1 class="title">🐷咪猪头的拼音大冒险</h1>
+            <div class="clouds">
+                <div class="cloud c1">☁️</div>
+                <div class="cloud c2">☁️</div>
+            </div>
+        </header>
+
+        <!-- Family Squad -->
+        <div class="family-squad">
+            <div class="parent dad">
+                <div class="p-avatar">🐗</div>
+                <div class="p-name">大猪头爸爸</div>
+                <div class="speech-bubble hidden" id="dad-msg">加油！</div>
+            </div>
+            <div class="parent mom">
+                <div class="p-avatar">🐟</div>
+                <div class="p-name">蜂蜜小黄鱼妈妈</div>
+                <div class="speech-bubble hidden" id="mom-msg">宝贝真棒！</div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="content-area">
+            <!-- View 1: Home Menu -->
+            <div id="home-view" class="view active">
+                <div class="welcome-msg">今天也要加油鸭！💪</div>
+                <div class="menu-grid">
+                    <button class="menu-card c-initials" onclick="app.showCategory('initials')">
+                        <span class="icon">🗣️</span>
+                        <span class="label">声母</span>
+                        <span class="sub-label">Initials</span>
+                    </button>
+                    <button class="menu-card c-finals" onclick="app.showCategory('finals')">
+                        <span class="icon">🎵</span>
+                        <span class="label">韵母</span>
+                        <span class="sub-label">Finals</span>
+                    </button>
+                    <button class="menu-card c-overall" onclick="app.showCategory('overall')">
+                        <span class="icon">📖</span>
+                        <span class="label">整体认读</span>
+                        <span class="sub-label">Syllables</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- View 2: Grid List -->
+            <div id="grid-view" class="view hidden">
+                <div class="view-header">
+                    <button class="back-btn" onclick="app.goHome()">↩️ 返回</button>
+                    <h2 id="category-title">声母</h2>
+                </div>
+                <div id="pinyin-grid" class="pinyin-grid">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div>
+
+            <!-- View 3: Detail Card -->
+            <div id="detail-view" class="view hidden">
+                <div class="view-header">
+                    <button class="back-btn" onclick="app.goBackToGrid()">↩️ 返回</button>
+                </div>
+                <div class="detail-container">
+                    <div class="flashcard" id="flashcard" onclick="app.playAudio()">
+                        <div class="card-content">
+                            <div class="pinyin-char" id="detail-char">a</div>
+                            <div class="pinyin-emoji" id="detail-emoji">🍎</div>
+                            <div class="pinyin-word" id="detail-word">苹果</div>
+                        </div>
+                        <button class="play-btn">🔊 点我读</button>
+                    </div>
+                    <div class="navigation-controls">
+                        <button class="nav-btn prev" onclick="app.prevCard()">⬅️ 上一个</button>
+                        <button class="nav-btn next" onclick="app.nextCard()">下一个 ➡️</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
